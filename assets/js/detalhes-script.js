@@ -3,6 +3,11 @@ let productData;
 $(document).ready(initialise);
 
 function initialise() {
+    $("#search-form").on("submit", (e) => {
+        e.preventDefault();
+        searchByQuery();
+    });
+
     const urlParams = new URLSearchParams(window.location.search);
     getProductByID(urlParams.get("id"));
 }
@@ -13,10 +18,19 @@ async function getProductByID(id) {
         .then( data => createProductDetailsPage(data) );
 }
 
+function searchByQuery() {
+    const query = $("#search-input").val();
+    console.log(query);
+    if (query.length != 0) {
+        window.location.href = "pesquisa.html" + "?query=" + query.toLowerCase();
+    }
+}
+
 function createProductDetailsPage(product) {
     console.log(product);
     if (product == null) {
-        console.log("ID not found");
+        console.log("ID not valid");
+        $("title").text("ID not valid");
         $("body").html("404");
     }
 
@@ -39,6 +53,8 @@ function createProductDetailsPage(product) {
         year: product.year,
         articleType: product.articleType
     }
+
+    $("title").text(productData.name);
 
     $("#top-product-category").text(productData.category);
     $("#top-product-category").click(() => {

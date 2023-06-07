@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 .csel-item {
   height: 400px;
 }
@@ -25,4 +27,8 @@
 
 #heart-white {
   color: white;
+}
+
+#nav-brand-name {
+  font-family: 'Satisfy', cursive;
 }

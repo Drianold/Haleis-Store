@@ -7,13 +7,15 @@ function initialise() {
         e.preventDefault();
         searchByQuery();
     });
-    getAllProducts();
+    const urlParams = new URLSearchParams(window.location.search);
+    getProductsByQuery(urlParams.get("query"));
+    $("title").text("Search: " + urlParams.get("query"));
 }
 
-async function getAllProducts(page=1, page_items=20) {
-    await fetch(`https://diwserver.vps.webdock.cloud/products?page=${page}&page_items=${page_items}`)
+async function getProductsByQuery(query, page_items=40) {
+    await fetch(`https://diwserver.vps.webdock.cloud/products/search?query=${query}&page_items=${page_items}`)
         .then( response => response.json() )
-        .then( data => createProductsList(data.products) );
+        .then( data => createProductsList(data));
 }
 
 function searchByQuery() {
@@ -23,24 +25,6 @@ function searchByQuery() {
         window.location.href = "pesquisa.html" + "?query=" + query.toLowerCase();
     }
 }
-
-// async function getCategories() {
-//     await fetch("https://diwserver.vps.webdock.cloud/products/categories")
-//         .then( response => response.json() )
-//         .then( data => TODO);
-// }
-
-// async function getProductsInCategory(category) {
-//     await fetch("https://diwserver.vps.webdock.cloud/products/category/" + category)
-//         .then( response => response.json() )
-//         .then( data => TODO);
-// }
-
-// async function getProductsByQuery(query) {
-//     await fetch("https://diwserver.vps.webdock.cloud/products/search?query=" + query)
-//         .then( response => response.json() )
-//         .then( data => TODO);
-// }
 
 function createProductsList(products) {
     productsData = products.map((di) => {
