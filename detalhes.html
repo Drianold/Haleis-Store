@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hal'eis</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script src="./assets/js/jquery-3.7.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">Hal'eis</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">&rarr;</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-3 pb-2">
+    <div class="container">
+      <div class="fs-5 mb-3">
+        <a class="fs-5 btn btn-floating p-0 m-0" href="./index.html"><u>Home</u></a>
+        <span class="fs-5 btn btn-floating p-0 m-0"> / </span>
+        <a class="fs-5 btn btn-floating p-0 m-0" href="#"><u id="top-product-category"></u></a>
+      </div>
+    </div>
+    <div class="product-div">
+      <div class="container">
+        <div class="row gx-4 gx-lg-5 align-items-center equal-h-cols">
+          <div class="col-md-6">
+            <img id="product-img" class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x800/dee2e6/6c757d.jpg&text=+" alt="" />
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div id="product-id" class="small mb-1">ID: </div>
+              <div class="container-fluid p-0">
+                <div class="row">
+                  <div class="col">
+                    <h1 id="product-name" class="display-6 fw-bolder"></h1>
+                  </div>
+                  <div class="col-auto">
+                    <button type="button" class="btn btn-dark w-auto heart-white bi-heart-fill">
+                      <!-- <span class="heart-white bi-heart-fill"></span> -->
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <span id="product-price" class="fs-5"></span>
+              <br>
+              <span id="product-main-brand" class="fs-5"></span>
+              <div id="product-rating-container" class="mt-2">
+                <div id="product-rating-stars-container">
+                </div>
+                <span id="product-rating"></span>
+              </div>
+              <div class="container px-0 mt-2">
+                <div class="row justify-content-between g-2 m-0">
+                  <div class="col-md-6 mb-2 mb-md-0">
+                    <button type="button" class="btn btn-dark w-100">Buy now</button>
+                  </div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-outline-dark w-100">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="container">
+      <h3 class="display-7 fw-bolder mt-5">Description</h3>
+      <div id="description-holder" class="lead fw-normal mt-3">
+        <br>
+        <br>
+        <br>
+      </div>
+      <h3 class="display-7 fw-bolder mt-5">Details</h3>
+      <div id="details-holder">
+        <div class="container gy-6"></div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Category:</div>
+            <div id="product-category" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Brand:</div>
+            <div id="product-brand" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Season:</div>
+            <div id="product-season" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Usage:</div>
+            <div id="product-usage" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Gender:</div>
+            <div id="product-gender" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Article Number:</div>
+            <div id="product-articleNumber" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Base Colour:</div>
+            <div id="product-baseColour" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Year:</div>
+            <div id="product-year" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Article Type:</div>
+            <div id="product-articleType" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+          <div class="row mb-3 mb-md-0">
+            <div class="col-12 col-md-4 col-lg-2 fw-medium">Type:</div>
+            <div id="product-type" class="col-12 col-md-8 col-lg-10 text-break"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark py-5 mt-5">
+    <div class="container px-4 pt-0 pb-0 text-center mb-4">
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/facebook.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/twitter.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/google.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/instagram.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="https://www.linkedin.com/in/adriano-schettini/"
+        role="button"
+        target="_blank"
+      ><img src="./assets/img/icons/linkedin.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="https://github.com/Drianold"
+        role="button"
+        target="_blank"
+      ><img src="./assets/img/icons/github.svg" alt=""></a>
+    </div>
+    
+    <div class="container text-light text-center">
+      <small class="text-white-50 d-block">Nome: Adriano Expedito Silva Schettini</small>
+      <small class="text-white-50 d-block">Curso: Ciência da Computação</small>
+      <small class="text-white-50 d-block">Matrícula: 642238</small>
+      <br>
+      <small class="text-white-50 d-block">Formas de pagamento aceitas: cartões de crédito (Visa, MasterCard, Elo e American Express), cartões de débito (Visa e Elo), Boleto e Pix.</small>
+      <small class="text-white-50 d-block">42 Wallaby Way, Sydney | Fale conosco: info@haleis.org</small>
+      <small class="text-white d-block">&copy; 2023-2025 haleis.org</small>
+    </div>
+  </footer>
+
+  <script src="./assets/js/detalhes-script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

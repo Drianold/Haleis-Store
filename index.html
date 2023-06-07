@@ -5,12 +5,107 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hal'eis</title>
-  <script src="./assets/js/jquery-3.7.0.min.js"></script>
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="./assets/js/jquery-3.7.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-  <div id="products-container" class="container"> </div>
-  <script src="./assets/js/script.js"></script>
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Hal'eis</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">&rarr;</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+  <section class="mt-5">
+    <div id="products-container" class="container"> </div>
+  </section>
+
+  <footer class="bg-dark py-5 mt-5">
+    <div class="container px-4 pt-0 pb-0 text-center mb-4">
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/facebook.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/twitter.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/google.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="#!"
+        role="button"
+      ><img src="./assets/img/icons/instagram.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="https://www.linkedin.com/in/adriano-schettini/"
+        role="button"
+        target="_blank"
+      ><img src="./assets/img/icons/linkedin.svg" alt=""></a>
+      <a
+        class="btn text-white btn-floating m-1 pt-0"
+        style="background-color: #ffffff;"
+        href="https://github.com/Drianold"
+        role="button"
+        target="_blank"
+      ><img src="./assets/img/icons/github.svg" alt=""></a>
+    </div>
+    
+    <div class="container text-light text-center">
+      <small class="text-white-50 d-block">Nome: Adriano Expedito Silva Schettini</small>
+      <small class="text-white-50 d-block">Curso: Ciência da Computação</small>
+      <small class="text-white-50 d-block">Matrícula: 642238</small>
+      <br>
+      <small class="text-white-50 d-block">Formas de pagamento aceitas: cartões de crédito (Visa, MasterCard, Elo e American Express), cartões de débito (Visa e Elo), Boleto e Pix.</small>
+      <small class="text-white-50 d-block">42 Wallaby Way, Sydney | Fale conosco: info@haleis.org</small>
+      <small class="text-white d-block">&copy; 2023-2025 haleis.org</small>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main-script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
