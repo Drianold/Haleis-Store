@@ -25,10 +25,124 @@
   box-shadow: 0px 0px 6px 1px rgba(128, 128, 128, 0.47);
 }
 
-#heart-white {
+.heart-white {
   color: white;
 }
 
 #nav-brand-name {
   font-family: 'Satisfy', cursive;
+}
+
+#nav-brand-name > img {
+  filter: invert(99%) sepia(0%) saturate(3150%) hue-rotate(263deg) brightness(114%) contrast(100%);
+}
+
+#category-list li {
+  cursor: pointer;
+}
+
+.dropdown-scroll {
+  max-height: 400px;
+}
+
+.home-card-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 6px 1px rgba(128, 128, 128, 0.47);
+  cursor: pointer;
+}
+
+.home-card-wrapper:hover {
+  transform: translate3D(0, -2px, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home-card-title {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fav-btn {
+  height: 25px;
+  width: 0;
+}
+
+.home-card-img {
+  width: 100%;
+  height: auto;
+}
+
+.toggle {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  place-items: center;
+  place-content: center;
+  background-color: #212529;
+}
+
+.fav-chk {
+  position: absolute;
+  visibility: hidden;
+}
+
+.fav-chk-label {
+  cursor: pointer;
+  color: white;
+}
+
+.nav-page-container {
+  gap: 10px;
+}
+
+.nav-page-button {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  place-items: center;
+  place-content: center;
+  background-color: #6f6f6f;
+  cursor: pointer;
+}
+
+.nav-page-button.disabled {
+  background-color: #b2b2b2;
+  cursor: default;
+}
+
+.nav-page-button:not(.disabled,.nav-page-actual):hover {
+  transform: translate3D(0, -1px, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-page-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-page-actual {
+  cursor: default;
+}
+
+.loading-div {
+  height: 70vh;
+}
+
+.loading-wrapper {
+  margin: auto;
+  border: 15px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 15px solid #353535;
+  width: 150px;
+  height: 150px;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

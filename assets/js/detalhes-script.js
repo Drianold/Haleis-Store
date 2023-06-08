@@ -58,7 +58,9 @@ function createProductDetailsPage(product) {
 
     $("#top-product-category").text(productData.category);
     $("#top-product-category").click(() => {
-        window.location.href = "categoria.html" + "?categoria=" + product.category;
+        const urlParams = new URLSearchParams();
+        urlParams.set("category", productData.category);
+        window.location.href = "index.html?category=" + urlParams.get("category");
     });
     $("#product-img").attr("src", productData.img);
     $("#product-id").text("ID:" + productData.id);

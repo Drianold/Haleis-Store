@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hal'eis</title>
-  <link rel="icon" href="./assets/img/favicon/shop.svg">
+  <link rel="icon" href="./assets/img/favicon/snake.svg">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script src="./assets/js/jquery-3.7.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -14,7 +14,10 @@
 <body>
   <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container">
-      <a id="nav-brand-name" class="navbar-brand fs-2" href="#">Hal'eis</a>
+      <a id="nav-brand-name" class="navbar-brand fs-2" href="index.html">
+        <img src="./assets/img/favicon/snake.svg" alt="" width="30" height="30">
+        Hal'eis
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,12 +32,53 @@
       </div>
     </div>
   </nav>
-  
-  <section class="mt-5">
-    <div id="products-container" class="container"> </div>
+
+  <section class="mt-3">
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-12 col-md-auto">
+          <button id="category-button" type="button" class="btn btn-light dropdown-toggle border w-100 d-inline-block text-truncate" data-bs-toggle="dropdown" aria-expanded="false">
+            Category: All
+          </button>
+          <ul id="category-list" class="dropdown-scroll dropdown-menu overflow-auto">
+            <li><a id="category-item-all" class="dropdown-item" href="#">All</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="bg-dark py-5 mt-5">
+  <section class="mt-3">
+    <div class="loading-div d-flex justify-content-center">
+      <div class="loading-wrapper"></div>
+    </div>
+    <div id="products-container" class="container">
+
+    </div>
+  </section>
+
+  <nav class="mt-3">
+    <div class="nav-page-container container d-flex justify-content-center g-2">
+      <div id="nav-page-start" class="nav-page-button">
+        <a class="bi-chevron-double-left"></a>
+      </div>
+      <div id="nav-page-previous" class="nav-page-button">
+        <a class="bi-chevron-left"></a>
+      </div>
+      <div id="nav-page-actual" class="nav-page-button nav-page-actual">
+        <a class=""> </a>
+      </div>
+      <div id="nav-page-next" class="nav-page-button">
+        <a class="bi-chevron-right"></a>
+      </div>
+      <div id="nav-page-end" class="nav-page-button">
+        <a class="bi-chevron-double-right"></a>
+      </div>
+    </div>
+  </nav>
+
+  <footer class="bg-dark py-5 mt-3">
     <div class="container px-4 pt-0 pb-0 text-center mb-4">
       <a
         class="btn text-white btn-floating m-1 pt-0"

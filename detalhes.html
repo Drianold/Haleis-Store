@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hal'eis</title>
-  <link rel="icon" href="./assets/img/favicon/shop.svg">
+  <link rel="icon" href="./assets/img/favicon/snake.svg">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script src="./assets/js/jquery-3.7.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -14,7 +14,10 @@
 <body>
   <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container">
-      <a id="nav-brand-name" class="navbar-brand fs-2" href="#">Hal'eis</a>
+      <a id="nav-brand-name" class="navbar-brand fs-2" href="index.html">
+        <img src="./assets/img/favicon/snake.svg" alt="" width="30" height="30">
+        Hal'eis
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,9 +36,9 @@
   <section class="pt-3 pb-2">
     <div class="container">
       <div class="fs-5 mb-3">
-        <a class="fs-5 btn btn-floating p-0 m-0" href="./index.html"><u>Home</u></a>
+        <a class="fs-5 btn btn-floating p-0 m-0" href="index.html"><u>Home</u></a>
         <span class="fs-5 btn btn-floating p-0 m-0"> / </span>
-        <a class="fs-5 btn btn-floating p-0 m-0" href="#"><u id="top-product-category"></u></a>
+        <a class="fs-5 btn btn-floating p-0 m-0"><u id="top-product-category"></u></a>
       </div>
     </div>
     <div class="product-div">
@@ -53,7 +56,10 @@
                     <h1 id="product-name" class="display-6 fw-bolder"></h1>
                   </div>
                   <div class="col-auto">
-                    <button type="button" class="btn btn-dark w-auto heart-white bi-heart-fill"></button>
+                    <div class="toggle">
+                      <input type="checkbox" id="heart-check" class="fav-chk">
+                      <label for="heart-check" id="heart" class="fav-chk-label bi-heart-fill"></label>
+                    </div>
                   </div>
                 </div>
               </div>

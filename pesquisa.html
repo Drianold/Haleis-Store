@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hal'eis</title>
-  <link rel="icon" href="./assets/img/favicon/shop.svg">
+  <link rel="icon" href="./assets/img/favicon/snake.svg">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script src="./assets/js/jquery-3.7.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -14,7 +14,10 @@
 <body>
   <nav class="navbar navbar-expand-md bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container">
-      <a id="nav-brand-name" class="navbar-brand fs-2" href="#">Hal'eis</a>
+      <a id="nav-brand-name" class="navbar-brand fs-2" href="index.html">
+        <img src="./assets/img/favicon/snake.svg" alt="" width="30" height="30">
+        Hal'eis
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,7 +34,18 @@
   </nav>
 
   <section class="mt-5">
-    <div id="products-container" class="container"> </div>
+    <div class="container">
+      <h1 id="results" class="bi-search"></h1>
+    </div>
+  </section>
+
+  <section class="mt-5">
+    <div class="loading-div d-flex justify-content-center">
+      <div class="loading-wrapper"></div>
+    </div>
+    <div id="products-container" class="container">
+      
+    </div>
   </section>
 
   <footer class="bg-dark py-5 mt-5">
