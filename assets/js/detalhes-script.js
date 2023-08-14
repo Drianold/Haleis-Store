@@ -13,7 +13,7 @@ function initialise() {
 }
 
 async function getProductByID(id) {
-    await fetch(`https://diwserver.vps.webdock.cloud/products/${id}`)
+    await fetch(`https://fakestoreapi.com/products/${id}`)
         .then( response => response.json() )
         .then( data => createProductDetailsPage(data) );
 }
@@ -43,15 +43,6 @@ function createProductDetailsPage(product) {
         ratingCount: product.rating.count,
         description: product.description,
         category: product.category,
-        displayCategories: product.displayCategories,
-        brand: product.brandName,
-        season: product.season,
-        usage: product.usage,
-        gender: product.gender,
-        articleNumber: product.articleNumber,
-        baseColour: product.baseColour,
-        year: product.year,
-        articleType: product.articleType
     }
 
     $("title").text(productData.name);
@@ -72,16 +63,6 @@ function createProductDetailsPage(product) {
     $("#description-holder").html(productData.description);
 
     $("#product-category").text(productData.category);
-    $("#product-brand").text(productData.brand);
-    $("#product-season").text(productData.season);
-    $("#product-usage").text(productData.usage);
-    $("#product-gender").text(productData.gender);
-    $("#product-articleNumber").text(productData.articleNumber);
-    $("#product-baseColour").text(productData.baseColour);
-    $("#product-year").text(productData.year);
-    $("#product-articleType").text(productData.articleType);
-    $("#product-articleType").text(productData.articleType);
-    $("#product-type").text(productData.displayCategories);
 }
 
 function ratingToStars(rating) {

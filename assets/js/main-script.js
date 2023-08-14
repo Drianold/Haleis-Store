@@ -10,10 +10,10 @@ function initialise() {
     getCategories();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const p = (urlParams.has("page") && urlParams.get("page") != 1) ? parseInt(urlParams.get("page")) : 1;
+    const p = 1;
 
     checkPageNavigation(p);
-    
+
     if (urlParams.has("category")) {
         $("title").text("Hal'eis - " + urlParams.get("category"));
         $("#category-button").text("Category: " + urlParams.get("category"));
@@ -24,25 +24,25 @@ function initialise() {
 }
 
 async function getCategories() {
-    await fetch("https://diwserver.vps.webdock.cloud/products/categories")
+    await fetch("https://fakestoreapi.com/products/categories")
         .then( response => response.json() )
         .then( data => createCategoriesDropdown(data) );
 }
 
 async function getAllProducts(page=1, page_items=24) {
-    await fetch(`https://diwserver.vps.webdock.cloud/products?page=${page}&page_items=${page_items}`)
+    await fetch(`https://fakestoreapi.com/products?page=${page}&page_items=${page_items}`)
         .then( response => response.json() )
         .then( data => {
-            createProductsList(data.products) ;
+            createProductsList(data);
             checkPageNavigation(data.current_page, data.total_pages);
         } );
 }        
 
 async function getProductsInCategory(category, page=1, page_items=24) {
-    await fetch(`https://diwserver.vps.webdock.cloud/products/category/${category}?page=${page}&page_items=${page_items}`)
+    await fetch(`https://fakestoreapi.com/products/category/${category}?page=${page}&page_items=${page_items}`)
         .then( response => response.json() )
         .then( data => {
-            createProductsList(data.products) ;
+            createProductsList(data);
             checkPageNavigation(data.current_page, data.total_pages);
         } );
 }
@@ -65,16 +65,7 @@ function createProductsList(products) {
                 rating: product.rating.rate,
                 ratingCount: product.rating.count,
                 description: product.description,
-                category: product.category,
-                displayCategories: product.displayCategories,
-                brand: product.brandName,
-                season: product.season,
-                usage: product.usage,
-                gender: product.gender,
-                articleNumber: product.articleNumber,
-                baseColour: product.baseColour,
-                year: product.year,
-                articleType: product.articleType
+                category: product.category
             };
         });
     console.log(productsData);
@@ -176,36 +167,8 @@ function checkPageNavigation(current_page, total_pages) {
     
     $("#nav-page-actual").off("click");
     $("#nav-page-actual a").text(current_page);
-
-    if (current_page == 1) {
-        $("#nav-page-start").addClass("disabled").off("click");
-        $("#nav-page-previous").addClass("disabled").off("click");
-    } else {
-        $("#nav-page-start").removeClass("disabled").click(() => {
-            urlParams.delete("page");
-            window.location.search = urlParams;
-        });
-        $("#nav-page-previous").removeClass("disabled").click(() => {
-            if (current_page == 2) {
-                urlParams.delete("page");
-            } else {
-                urlParams.set("page", current_page-1);
-            }
-            window.location.search = urlParams;
-        });
-    }
-
-    if (current_page == total_pages) {
-        $("#nav-page-next").addClass("disabled").off("click");
-        $("#nav-page-end").addClass("disabled").off("click");
-    } else {
-        $("#nav-page-next").removeClass("disabled").click(() => {
-            urlParams.set("page", current_page+1);
-            window.location.search = urlParams;
-        });
-        $("#nav-page-end").removeClass("disabled").click(() => {
-            urlParams.set("page", total_pages);
-            window.location.search = urlParams;
-        });
-    }
+    $("#nav-page-start").addClass("disabled").off("click");
+    $("#nav-page-previous").addClass("disabled").off("click");
+    $("#nav-page-next").addClass("disabled").off("click");
+    $("#nav-page-end").addClass("disabled").off("click");
 }
