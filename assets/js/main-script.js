@@ -1,6 +1,6 @@
 let productsData = [];
 
-$(document).ready(initialise);
+jQuery(initialise);
 
 function initialise() {
     $("#search-form").on("submit", (e) => {
@@ -17,34 +17,34 @@ function initialise() {
     if (urlParams.has("category")) {
         $("title").text("Hal'eis - " + urlParams.get("category"));
         $("#category-button").text("Category: " + urlParams.get("category"));
-        getProductsInCategory(urlParams.get("category"), p);
+        getProductsInCategory(urlParams.get("category"));
     } else {
-        getAllProducts(p);
+        getAllProducts();
     }
 }
 
 async function getCategories() {
     await fetch("https://fakestoreapi.com/products/categories")
-        .then( response => response.json() )
-        .then( data => createCategoriesDropdown(data) );
+        .then(response => response.json())
+        .then(data => createCategoriesDropdown(data));
 }
 
-async function getAllProducts(page=1, page_items=24) {
-    await fetch(`https://fakestoreapi.com/products?page=${page}&page_items=${page_items}`)
-        .then( response => response.json() )
-        .then( data => {
+async function getAllProducts() {
+    await fetch(`https://fakestoreapi.com/products`)
+        .then(response => response.json())
+        .then(data => {
             createProductsList(data);
             checkPageNavigation(data.current_page, data.total_pages);
-        } );
+        });
 }        
 
-async function getProductsInCategory(category, page=1, page_items=24) {
-    await fetch(`https://fakestoreapi.com/products/category/${category}?page=${page}&page_items=${page_items}`)
+async function getProductsInCategory(category) {
+    await fetch(`https://fakestoreapi.com/products/category/${category}`)
         .then( response => response.json() )
         .then( data => {
             createProductsList(data);
             checkPageNavigation(data.current_page, data.total_pages);
-        } );
+        });
 }
 
 function searchByQuery() {
@@ -137,7 +137,7 @@ function ratingToStars(rating) {
 function createCategoriesDropdown(categories) {
     console.log(categories);
 
-    $("#category-item-all").click((e) => {
+    $("#category-item-all").on("click", (e) => {
         e.preventDefault();
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.delete("category");
@@ -162,7 +162,7 @@ function createCategoriesDropdown(categories) {
     );
 }
 
-function checkPageNavigation(current_page, total_pages) {
+function checkPageNavigation(current_page) {
     const urlParams = new URLSearchParams(window.location.search);
     
     $("#nav-page-actual").off("click");

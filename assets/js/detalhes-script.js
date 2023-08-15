@@ -1,6 +1,6 @@
 let productData;
 
-$(document).ready(initialise);
+jQuery(initialise);
 
 function initialise() {
     $("#search-form").on("submit", (e) => {
@@ -14,8 +14,8 @@ function initialise() {
 
 async function getProductByID(id) {
     await fetch(`https://fakestoreapi.com/products/${id}`)
-        .then( response => response.json() )
-        .then( data => createProductDetailsPage(data) );
+        .then(response => response.json())
+        .then(data => createProductDetailsPage(data));
 }
 
 function searchByQuery() {

@@ -1,22 +1,23 @@
 let productsData = [];
 
-$(document).ready(initialise);
+jQuery(initialise);
 
 function initialise() {
     $("#search-form").on("submit", (e) => {
         e.preventDefault();
         searchByQuery();
     });
+
     const urlParams = new URLSearchParams(window.location.search);
     getProductsByQuery(urlParams.get("query"));
     $("title").text("Search: " + urlParams.get("query"));
     $("#search-input").val(urlParams.get("query"));
 }
 
-async function getProductsByQuery(query, page_items=100) {
-    await fetch(`https://diwserver.vps.webdock.cloud/products/search?query=${query}&page_items=${page_items}`)
-        .then( response => response.json() )
-        .then( data => createProductsList(data));
+async function getProductsByQuery(query) {
+    await fetch(`https://fakestoreapi.com/products`)
+        .then(response => response.json())
+        .then(data => createFindedProductsList(data, query));
 }
 
 function searchByQuery() {
@@ -27,8 +28,10 @@ function searchByQuery() {
     }
 }
 
-function createProductsList(products) {
-    productsData = products.map((product) => {
+function createFindedProductsList(products, query) {
+    productsData = products
+        .filter((product) => String(product.title).toLowerCase().includes(query.toLowerCase()))
+        .map((product) => {
             return {
                 id: product.id,
                 name: product.title,
@@ -37,16 +40,7 @@ function createProductsList(products) {
                 rating: product.rating.rate,
                 ratingCount: product.rating.count,
                 description: product.description,
-                category: product.category,
-                displayCategories: product.displayCategories,
-                brand: product.brandName,
-                season: product.season,
-                usage: product.usage,
-                gender: product.gender,
-                articleNumber: product.articleNumber,
-                baseColour: product.baseColour,
-                year: product.year,
-                articleType: product.articleType
+                category: product.category
             };
         });
     console.log(productsData);
